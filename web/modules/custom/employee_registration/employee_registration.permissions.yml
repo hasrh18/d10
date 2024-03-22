@@ -1,0 +1,4 @@
+administer employee_registration module:
+  title: 'Administer employee_registration Authentication Support module'
+  description: 'Perform administration tasks for SMTP Authentication Support module.'
+  restrict access: true

@@ -1,0 +1,17 @@
+<?php
+
+use Drupal\user_tracking\Event\UserLoginEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Validator\Constraints\Ip;
+
+/**
+ * Implements hook_user_login().
+ */
+function user_tracking_user_login(\Drupal\user\UserInterface $account) {
+    // Get the IP address of the user.
+    $ip_address = \Drupal::request()->getClientIp();
+
+  
+    $event = new UserLoginEvent($account->id(), $ip_address);
+  \Drupal::service('event_dispatcher')->dispatch($event,'user_tracking.user_login');
+}

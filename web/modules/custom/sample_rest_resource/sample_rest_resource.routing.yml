@@ -1,0 +1,12 @@
+sample_rest_resource.custom_rest_resource:
+  path: '/api/custom/{id}'
+  defaults:
+    _controller: '\Drupal\sample_rest_resource\Plugin\rest\resource\CustomRestResource::get'
+    _title: 'Custom REST Resource'
+  methods:
+    - GET
+    - POST
+    - PATCH
+    - DELETE
+  requirements:
+    _access: 'TRUE'

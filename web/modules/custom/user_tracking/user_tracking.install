@@ -1,0 +1,60 @@
+<?php
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_install().
+ */
+function user_tracking_install() {
+  // Create userinfo table.
+  $schema['userinfo'] = [
+    'description' => 'Stores user login data.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'uid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'User ID',
+      ],
+      'login_time' => [
+        'type' => 'varchar',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        'description' => 'Timestamp of login',
+      ],
+      'ip_address' => array(
+        'description' => 'user ip',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+    ),
+    'history' => array(
+        'description' => 'user history',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+    ),
+    ],
+    'primary key' => ['id'],
+  ];
+
+  // Create the table.
+  foreach ($schema as $table => $definition) {
+    Database::getConnection()->schema()->createTable($table, $definition);
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function user_tracking_uninstall() {
+  // Drop the table when the module is uninstalled.
+  Database::getConnection()->schema()->dropTable('userinfo');
+}

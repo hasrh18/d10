@@ -1,0 +1,5 @@
+services:
+  user_tracking.event_subscriber:
+    class: Drupal\user_tracking\EventSubscriber\UserLoginSubscriber
+    tags:
+      - { name: event_subscriber }

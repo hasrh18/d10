@@ -1,0 +1,68 @@
+employee_registration.form:
+  path: '/registration-form'
+  defaults:
+    _title: 'Employee Registration'
+    _form: '\Drupal\employee_registration\Form\Registration'
+  requirements:
+    _permission: 'access content'
+
+employee_registration.admin_form:
+  path: '/admin/config/employee_registration/admin_registration-form'
+  defaults:
+    _title: 'Admin Employee Registration'
+    _form: '\Drupal\employee_registration\Form\Registration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+employee_registration.adminmenu_form:
+  path: '/admin/admin_registration-form'
+  defaults:
+    _title: 'Admin Employee Registration'
+    _form: '\Drupal\employee_registration\Form\Registration'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+employee_registration.settings:
+  path: '/admin/config/employee_registration/settings'
+  defaults:
+    _form: '\Drupal\employee_registration\Form\RegistrationSettings'
+    _title: 'example'
+  requirements:
+    _permission: 'administer site configuration'
+
+employee_registration.add.settings:
+  path: '/admin/config/employee_registration/add/settings'
+  defaults:
+    _form: '\Drupal\employee_registration\Form\Add'
+    _title: 'Add employee'
+  requirements:
+    _permission: 'administer site configuration'
+
+employee_registration.form_add:
+  path: '/admin/structure/employee_registration/add'
+  defaults:
+    _entity_form: 'contact_form_new.add'
+    _title: 'Add contact form'
+  requirements:
+    _permission: 'administer contact forms'
+
+
+employee_registration.default_form:
+  path: '/default_form'
+  defaults:
+    _form: 'Drupal\employee_registration\Form\DefaultForm'
+    _title: 'Ajax form'
+  requirements:
+    _permission: 'access content'
+
+employee_registration.add_student:
+  path: '/students/add'
+  defaults:
+    _title: 'Add Students'
+    _form: '\Drupal\employee_registration\Form\StudentForm'
+  requirements:
+    _access: 'TRUE'
