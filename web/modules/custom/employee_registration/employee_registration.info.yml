@@ -1,0 +1,12 @@
+name: Employee Registration Form
+type: module
+description: Custom module for implementing custom employee registration form.
+core_version_requirement: ^10
+package: Custom
+configure: employee_registration.admin_form
+
+
+dependencies:
+  - block
+  - config
+  - views

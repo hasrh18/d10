@@ -1,0 +1,15 @@
+type: employee_registration
+name: employee_registration
+description: 'Use <em>employee_registration</em> content to get to Drupal 10 development better.'
+help: ''
+new_revision: false
+display_submitted: true
+preview_mode: 1
+status: true
+langcode: en
+dependencies:
+  module:
+    - employee_registration
+  enforced:
+    module:
+      - employee_registration

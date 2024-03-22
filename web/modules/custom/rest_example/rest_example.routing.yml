@@ -1,0 +1,22 @@
+rest_example.books:
+  path: '/api/v1/books'
+  methods:
+    - GET
+    - POST
+  defaults:
+    _controller: '\Drupal\rest_example\Controller\BookController::get'
+    _entity_resource: 'rest_example.book'
+  requirements:
+    _permission: 'access content'
+
+rest_example.books_item:
+  path: '/api/v1/books/{id}'
+  methods:
+    - GET
+    - PATCH
+    - DELETE
+  defaults:
+    _controller: '\Drupal\rest_example\Controller\BookController::get'
+    _entity_resource: 'rest_example.book'
+  requirements:
+    _permission: 'access content'
